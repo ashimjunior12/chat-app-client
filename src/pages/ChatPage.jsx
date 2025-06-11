@@ -2,7 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://chat-backend-7lwx.onrender.com');
+
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
