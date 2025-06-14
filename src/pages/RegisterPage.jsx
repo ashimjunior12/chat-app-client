@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../api/api';
+
 
 const RegisterPage = () => {
   const [form, setForm] = useState({ username: '', email: '', password: '' });
@@ -21,8 +22,8 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center h-screen'>
-      <form onSubmit={handleSubmit} className='space-y-4 w-80'>
+    <div className='flex flex-col items-center justify-center h-screen border'>
+      <form onSubmit={handleSubmit} className='space-y-4 w-80 border-blue-600 border-b-2 p-3 rounded'>
         <h2 className='text-xl font-bold'>Register</h2>
         <input
           name='username'
@@ -51,6 +52,12 @@ const RegisterPage = () => {
           Register
         </button>
       </form>
+      <div className='footer mt-5 flex'>
+        <h5>Already have an account?</h5>
+        <Link to='/' className=''>
+          <span className='text-blue-500 hover:underline'>Login</span>
+        </Link>
+      </div>
     </div>
   );
 };

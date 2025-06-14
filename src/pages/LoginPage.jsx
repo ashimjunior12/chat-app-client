@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../api/api';
 
 const LoginPage = () => {
+  
   const [form, setForm] = useState({ email: '', password: '' });
   const navigate = useNavigate();
 
@@ -22,7 +23,10 @@ const LoginPage = () => {
 
   return (
     <div className='flex flex-col items-center justify-center h-screen'>
-      <form onSubmit={handleSubmit} className='space-y-4 w-80'>
+      <form
+        onSubmit={handleSubmit}
+        className='space-y-4 w-80 border-blue-600 border-b-2 p-3 rounded'
+      >
         <h2 className='text-xl font-bold'>Login</h2>
         <input
           name='email'
@@ -44,6 +48,12 @@ const LoginPage = () => {
           Login
         </button>
       </form>
+      <Link to='/register' className='mt-5'>
+        <h5>
+          Don't have an account?
+          <span className='text-blue-500 hover:underline'> Register</span>
+        </h5>
+      </Link>
     </div>
   );
 };
